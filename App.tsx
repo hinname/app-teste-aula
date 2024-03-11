@@ -1,7 +1,19 @@
+import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Button, TextInput, Linking } from 'react-native';
 
 export default function App() {
+  const [loginDisabled, setLoginDisabled] = useState(true);
+  const [matricula, setMatricula] = useState('');
+  const [senha, setSenha] = useState('');
+
+  if (matricula.length > 0 && senha.length > 0 && loginDisabled !== false) {
+    setLoginDisabled(false);
+  }
+  if ((matricula.length === 0 || senha.length === 0) && loginDisabled !== true) {
+    setLoginDisabled(true);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -33,13 +45,13 @@ export default function App() {
         </View>
       </View>
       <View style={styles.form}>
-        <Text>Usuário</Text>
-        <TextInput style={styles.inputLogin}/>
+        <Text>Matrícula</Text>
+        <TextInput style={styles.inputLogin} onChangeText={(value) => {setMatricula(value)}}/>
         <Text style={styles.linkLogin} onPress={() => {Linking.openURL("https://www.google.com/")}}>Não sei ou esqueci a matrícula</Text>
         <Text>Senha</Text>
-        <TextInput style={styles.inputLogin}/>
+        <TextInput style={styles.inputLogin} onChangeText={(value) => {setSenha(value)}}/>
         <Text style={styles.linkLogin} onPress={() => {Linking.openURL("https://estacio.br/")}}>Esqueci minha senha</Text>
-        <Button title='Entrar'/>
+        <Button title='Entrar' disabled={loginDisabled}/>
       </View>
       <StatusBar style="auto" />
     </View>
