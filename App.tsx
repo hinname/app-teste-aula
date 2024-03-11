@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Image, Button, TextInput, Linking } from 'react-native';
 
 export default function App() {
   return (
@@ -9,8 +9,8 @@ export default function App() {
           style={{ width: 150, height: 50 }}
           source={require('./assets/logo-estacio.png')}
         />
-        <Text style={{textAlign: 'center'}}>SIA - Sistema de informações Acadêmicas</Text>
-        <Text style={{fontSize: 12, textAlign: 'center'}}>Segunda, 4 de Março de 2024</Text>
+        <Text>SIA - Sistema de informações Acadêmicas</Text>
+        <Text style={{fontSize: 12}}>Segunda, 4 de Março de 2024</Text>
       </View>
       <View>
         <Button title='Entrar com email de estudante'/>
@@ -34,11 +34,11 @@ export default function App() {
       </View>
       <View style={styles.form}>
         <Text>Usuário</Text>
-        <TextInput/>
-        <Text style={{textAlign: 'right', color: 'blue', fontSize: 10}}>Não sei ou esqueci a matrícula</Text>
+        <TextInput style={styles.inputLogin}/>
+        <Text style={styles.linkLogin} onPress={() => {Linking.openURL("https://www.google.com/")}}>Não sei ou esqueci a matrícula</Text>
         <Text>Senha</Text>
-        <TextInput/>
-        <Text style={{textAlign: 'right', color: 'blue', fontSize: 10}}>Esqueci minha senha</Text>
+        <TextInput style={styles.inputLogin}/>
+        <Text style={styles.linkLogin} onPress={() => {Linking.openURL("https://estacio.br/")}}>Esqueci minha senha</Text>
         <Button title='Entrar'/>
       </View>
       <StatusBar style="auto" />
@@ -51,18 +51,36 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 3,
+    marginTop: 10,
   },
   header: {
     flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  form: {
+    flexDirection: 'column',
     alignContent: 'center',
     justifyContent: 'center',
+    gap: 10,
   },
-  form: {},
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
+    gap: 25,
+  },
+  linkLogin: {
+    textAlign: 'right', 
+    color: 'blue', 
+    fontSize: 10
+  },
+  inputLogin: {
+    padding: 10,
+    borderColor: 'black',
+    borderWidth: 0.5,
+    borderRadius: 5,
   },
 });
