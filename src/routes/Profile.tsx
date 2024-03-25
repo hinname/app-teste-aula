@@ -1,5 +1,7 @@
+import { Text } from 'react-native';
+
 export default function Profile() {
   return (
-    <b>Perfil</b>
+    <Text>Perfil</Text>
   )
 }

@@ -1,5 +1,7 @@
+import { Text } from 'react-native';
+
 export default function Settings() {
   return (
-    <b>Configurações</b>
+    <Text>Configurações</Text>
   )
 }

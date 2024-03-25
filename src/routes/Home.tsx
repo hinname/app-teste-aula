@@ -1,5 +1,7 @@
+import { Text } from "react-native";
+
 export default function Home() {
   return (
-    <b>Home</b>
+    <Text>Home</Text>
   )
 }

@@ -1,5 +1,7 @@
+import { Text } from 'react-native';
+
 export default function Notifications() {
   return (
-    <b>Notificações</b>
+    <Text>Notificações</Text>
   )
 }

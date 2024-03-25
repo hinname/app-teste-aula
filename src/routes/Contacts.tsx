@@ -1,5 +1,7 @@
+import { Text } from 'react-native';
+
 export default function Contacts() {
   return (
-    <b>Contatos</b>
+    <Text>Home</Text>
   )
 }
