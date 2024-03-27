@@ -2,6 +2,7 @@ import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 import SubjectCard from "../components/SubjectCard";
+import HomeMenuCard from "../components/HomeMenuCard";
 
 export default function Home() {
   const [userName, setUserName] = useState('Herivelton');
@@ -17,7 +18,13 @@ export default function Home() {
       <View style={styles.main}>
         <Text>Meu curso</Text>
         <View style={styles.mainCards}>
-          
+          <HomeMenuCard cardName="Disciplinas e avaliações" />
+          <HomeMenuCard cardName="Calendário acadêmico" />
+          <HomeMenuCard cardName="Notas" />
+          <HomeMenuCard cardName="Renova" />
+          <HomeMenuCard cardName="Horas AAC" />
+          <HomeMenuCard cardName="Biblioteca" />
+          <HomeMenuCard cardName="Histórico escolar" />
         </View>
       </View>
     </View>
