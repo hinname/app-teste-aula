@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function SubjectCard() {
-  const [subjectName, setSubjectName] = useState('Programação para dispositivos móveis');
+type SubjectCardProps = {
+  subjectName: string;
+};
+
+export default function SubjectCard(props : SubjectCardProps) {
   return (
     <View style={styles.container}>
-      <Text>{subjectName}</Text>
+      <Text>{props.subjectName}</Text>
     </View>
   )
 }

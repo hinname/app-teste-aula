@@ -11,7 +11,13 @@ export default function Home() {
         <Text>Olá, {userName}</Text>
         <View style={styles.subjects}>
           <Text>Disciplinas em andamento:</Text>
-          <SubjectCard />
+          <SubjectCard subjectName="Programação para dispositivos moveis" />
+        </View>
+      </View>
+      <View style={styles.main}>
+        <Text>Meu curso</Text>
+        <View style={styles.mainCards}>
+          
         </View>
       </View>
     </View>
@@ -35,5 +41,11 @@ const styles = StyleSheet.create({
   subjects: {
     flexDirection: 'column',
     gap: 10,
-  }
+  },
+  main: {
+
+  },
+  mainCards: {
+
+  },
 });
