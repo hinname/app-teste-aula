@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Button, TextInput, Linking } from 'react-native';
 
-export default function Login() {
+export default function Login({navigation, route}: {navigation: any, route: any}) {
   const [loginDisabled, setLoginDisabled] = useState(true);
   const [matricula, setMatricula] = useState('');
   const [senha, setSenha] = useState('');
@@ -51,7 +51,8 @@ export default function Login() {
         <Text>Senha</Text>
         <TextInput secureTextEntry={true} style={styles.inputLogin} onChangeText={(value) => {setSenha(value)}}/>
         <Text style={styles.linkLogin} onPress={() => {Linking.openURL("https://estacio.br/")}}>Esqueci minha senha</Text>
-        <Button title='Entrar' disabled={loginDisabled}/>
+        <Button title='Entrar' disabled={loginDisabled} onPress={() => route.params.funcLogar(true)}/>
+        <Text style={styles.linkLogin} onPress={() => navigation.navigate('SignUp')}>Registrar-se</Text>
       </View>
       <StatusBar style="auto" />
     </View>

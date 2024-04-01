@@ -23,23 +23,23 @@ export default function App() {
     <NavigationContainer>
       {isSignedin ? (
         <Drawer.Navigator>
-          <Drawer.Screen name="Main" component={
+          <Drawer.Screen name="Main" component={() => {return(
             <Tab.Navigator>
-              <Tab.Screen name="Avisos" component={Notifications} />
-              <Tab.Screen name="Home" component={
+              <Tab.Screen name="Home" options={{headerShown: false}}component={() => {return(
                 <Stack.Navigator>
-                  <Stack.Screen name='Home_Stack' component={Home} />
-                  <Stack.Screen name='Perfil' component={Profile} />
+                  <Stack.Screen name='Home_Stack' component={Home} initialParams={{funcLogar : setIsSignedin}} options={{headerShown: false}}/>
+                  <Stack.Screen name='Perfil' component={Profile}/>
                 </Stack.Navigator>
-              } />
+              )}} />
+              <Tab.Screen name="Avisos" component={Notifications} />
             </Tab.Navigator>
-          } />
+       )}} />
           <Drawer.Screen name='Config' component={Settings} />
           <Drawer.Screen name='Contatos' component={Contacts} />
         </Drawer.Navigator>
         ): (
           <Stack2.Navigator>
-            <Stack2.Screen name="Login" component={Login} />
+            <Stack2.Screen name="Login" component={Login} initialParams={{funcLogar : setIsSignedin}} />
             <Stack2.Screen name="SignUp" component={SignUp} />
           </Stack2.Navigator>
         )}

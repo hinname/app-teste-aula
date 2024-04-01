@@ -4,12 +4,14 @@ import { StyleSheet, Text, View } from "react-native";
 import SubjectCard from "../components/SubjectCard";
 import HomeMenuCard from "../components/HomeMenuCard";
 
-export default function Home() {
+export default function Home({navigation, route} : {navigation: any, route: any}) {
   const [userName, setUserName] = useState('Herivelton');
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text>Olá, {userName}</Text>
+        <Text onPress={() => {navigation.navigate('Perfil')}} style={styles.linkHome}>Acessar perfil</Text>
+        <Text onPress={() => route.params.funcLogar(false)} style={styles.logout}>Sair</Text>
         <View style={styles.subjects}>
           <Text>Disciplinas em andamento:</Text>
           <SubjectCard subjectName="Programação para dispositivos moveis" />
@@ -55,4 +57,17 @@ const styles = StyleSheet.create({
   mainCards: {
 
   },
+  linkHome: {
+    textAlign: 'right', 
+    color: 'blue', 
+    fontSize: 14,
+    margin: 10,
+  },
+  logout: {
+    textAlign: 'right', 
+    color: 'red', 
+    fontSize: 14,
+    margin: 10,
+    marginBottom: 20,
+  }
 });
